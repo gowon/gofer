@@ -1,0 +1,6 @@
+{
+  "ConnectionString": "Server=localhost;Database=master;Trusted_Connection=true;MultipleActiveResultSets=true;Application Name=Gofer;",
+  "GenerateReport": true,
+  //"ReportOutputPath": "C:\reports",
+  "Verbosity": "Debug"
+}

@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Gofer.Tools Create": {
+      "commandName": "Project",
+      "commandLineArgs": "create TestDb --connection-string \"Server=localhost;Database=master;Trusted_Connection=true;MultipleActiveResultSets=true;Application Name=Gofer;\" --force --verbosity Information"
+    },
+    "Gofer.Tools Migrate": {
+      "commandName": "Project",
+      "commandLineArgs": "migrate \"C:\\temp\\TestDb\" --connection-string \"Server=localhost;Database=ApplicationConfiguration;Trusted_Connection=true;MultipleActiveResultSets=true;Application Name=Gofer;\" --pretend --limit 10 --verbosity Information"
+    },
+    "Gofer.Tools Help": {
+      "commandName": "Project",
+      "commandLineArgs": "-?"
+    }
+  }
+}

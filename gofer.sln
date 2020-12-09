@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gofer.Tools", "src\Gofer.Tools\Gofer.Tools.csproj", "{919D5069-6571-4891-9593-614E1A971C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gofer.Core", "src\Gofer.Core\Gofer.Core.csproj", "{D91F31DE-051A-4AEC-A892-44B679E6F2C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{48A3CB37-8FB0-443F-94AF-262CA3765134}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{919D5069-6571-4891-9593-614E1A971C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919D5069-6571-4891-9593-614E1A971C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919D5069-6571-4891-9593-614E1A971C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919D5069-6571-4891-9593-614E1A971C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91F31DE-051A-4AEC-A892-44B679E6F2C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91F31DE-051A-4AEC-A892-44B679E6F2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91F31DE-051A-4AEC-A892-44B679E6F2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91F31DE-051A-4AEC-A892-44B679E6F2C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32A96CA6-F150-4037-B2EC-30ADFC4001BF}
+	EndGlobalSection
+EndGlobal
