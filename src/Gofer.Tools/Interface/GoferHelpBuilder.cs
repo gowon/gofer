@@ -9,7 +9,7 @@ namespace Gofer.Tools.Interface
 {
     public class GoferHelpBuilder : HelpBuilder
     {
-        public static readonly Lazy<string> AssemblyVersion =
+        private static readonly Lazy<string> AssemblyVersion =
             new Lazy<string>(() =>
             {
                 var assembly = Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
