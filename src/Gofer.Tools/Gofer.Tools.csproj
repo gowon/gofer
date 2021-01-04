@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>gofer</AssemblyName>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gofer</ToolCommandName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
