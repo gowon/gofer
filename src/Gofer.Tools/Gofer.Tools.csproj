@@ -6,10 +6,33 @@
     <AssemblyName>gofer</AssemblyName>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gofer</ToolCommandName>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GitInfoReportImportance Condition="'$(Configuration)' == 'Release'">high</GitInfoReportImportance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+
+  <PropertyGroup Label="NuspecProperties">
+    <Authors>Gowon Patterson</Authors>
+    <Description>Gofer is a simple database migration CLI utility.</Description>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/gowon/gofer</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>database migrations dotnet sql</PackageTags>
+    <PackageProjectUrl>https://github.com/gowon/gofer</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Label="SourceLink">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup Label="SourceLink">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="GitInfo" Version="2.1.2">
@@ -36,5 +59,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="SetVersion" BeforeTargets="Build;GetPackageVersion;_IntrospectProjectProperties" DependsOnTargets="GitVersion">
+    <PropertyGroup>
+      <!-- Packages for feature branches are marked as "alpha" (ex., 2.1.0-alpha426e8bcf) -->
+      <GitSemVerDashLabel Condition="$(GitBranch.Contains('feature'))">alpha$(GitCommit)</GitSemVerDashLabel>
+
+      <!-- Packages for release branches are marked as "rc", release candidates (ex., 2.1.0-rc426e8bcf) -->
+      <GitSemVerDashLabel Condition="$(GitBranch.Contains('releases'))">rc$(GitCommit)</GitSemVerDashLabel>
+
+      <!-- Packages for the master branch have no suffix (ex., 2.1.0) -->
+      <GitSemVerDashLabel Condition="$(GitBranch.Contains('master'))"></GitSemVerDashLabel>
+
+      <PackageVersion Condition="'$(GitSemVerDashLabel)' != ''">$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)-$(GitSemVerDashLabel)</PackageVersion>
+      <PackageVersion Condition="'$(GitSemVerDashLabel)' == ''">$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)</PackageVersion>
+    </PropertyGroup>
+  </Target>
 
 </Project>

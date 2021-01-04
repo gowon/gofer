@@ -1,15 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Scripts\SqlServerDropAndCreateDatabase.sql" />
-  </ItemGroup>
+  <PropertyGroup Label="SourceLink">
+    <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+    <!-- This is useful if you generate files during the build -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Scripts\SqlServerDropAndCreateDatabase.sql" />
+  </ItemGroup>
+
+  <ItemGroup Label="SourceLink">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
